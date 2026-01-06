@@ -1,147 +1,147 @@
 ---
-description: Add authentication, authorization, and security to API endpoints
+description: 为 API 端点添加身份验证、授权和安全性
 model: claude-sonnet-4-5
 ---
 
-Add comprehensive security, authentication, and authorization to the specified API route.
+为指定的 API 路由添加全面的安全性、身份验证和授权。
 
-## Target API Route
+## 目标 API 路由
 
 $ARGUMENTS
 
-## Security Layers to Implement
+## 要实现的安全层
 
-###1. **Authentication** (Who are you?)
-- Verify user identity
-- Token validation (JWT, session, API keys)
-- Handle expired/invalid tokens
+### 1. **身份验证**（你是谁？）
+- 验证用户身份
+- Token 验证（JWT、session、API keys）
+- 处理过期/无效的 token
 
-### 2. **Authorization** (What can you do?)
-- Role-based access control (RBAC)
-- Resource-level permissions
-- Check user ownership
+### 2. **授权**（你可以做什么？）
+- 基于角色的访问控制（RBAC）
+- 资源级别的权限
+- 检查用户所有权
 
-### 3. **Input Validation**
-- Sanitize all inputs
-- SQL/NoSQL injection prevention
-- XSS prevention
-- Type validation with Zod
+### 3. **输入验证**
+- 清理所有输入
+- SQL/NoSQL 注入防护
+- XSS 防护
+- 使用 Zod 进行类型验证
 
-### 4. **Rate Limiting**
-- Prevent abuse
-- Per-user/IP limits
-- Sliding window algorithm
+### 4. **速率限制**
+- 防止滥用
+- 每用户/IP 限制
+- 滑动窗口算法
 
-### 5. **CORS** (if needed)
-- Whitelist allowed origins
-- Proper headers
-- Credentials handling
+### 5. **CORS**（如需要）
+- 将允许的来源加入白名单
+- 正确的请求头
+- 凭证处理
 
-## Implementation Approach
+## 实现方法
 
-### For Supabase Projects:
+### 对于 Supabase 项目：
 ```typescript
-// Use Supabase Auth + RLS
-- getUser() from server-side client
-- RLS policies for data access
-- Service role key for admin operations
+// 使用 Supabase Auth + RLS
+- getUser() 从服务端客户端
+- RLS 策略用于数据访问
+- Service role key 用于管理员操作
 ```
 
-### For NextAuth.js Projects:
+### 对于 NextAuth.js 项目：
 ```typescript
-// Use NextAuth sessions
-- getServerSession() in route handlers
-- Protect with middleware
-- Role checking logic
+// 使用 NextAuth sessions
+- getServerSession() 在路由处理器中
+- 使用 middleware 保护
+- 角色检查逻辑
 ```
 
-### For Custom Auth:
+### 对于自定义 Auth：
 ```typescript
-// JWT validation
-- Verify tokens
-- Decode and validate claims
-- Check expiration
+// JWT 验证
+- 验证 token
+- 解码并验证声明
+- 检查过期时间
 ```
 
-## Security Checklist
+## 安全检查清单
 
-**Authentication**
--  Verify authentication tokens
--  Handle missing/invalid tokens (401)
--  Check token expiration
--  Secure token storage recommendations
+**身份验证**
+- 验证身份验证 token
+- 处理缺失/无效的 token（401）
+- 检查 token 过期时间
+- 安全的 token 存储建议
 
-**Authorization**
--  Check user roles/permissions (403)
--  Verify resource ownership
--  Implement least privilege principle
--  Log authorization failures
+**授权**
+- 检查用户角色/权限（403）
+- 验证资源所有权
+- 实施最小权限原则
+- 记录授权失败
 
-**Input Validation**
--  Validate all inputs with Zod
--  Sanitize SQL/NoSQL inputs
--  Escape special characters
--  Limit payload sizes
+**输入验证**
+- 使用 Zod 验证所有输入
+- 清理 SQL/NoSQL 输入
+- 转义特殊字符
+- 限制 payload 大小
 
-**Rate Limiting**
--  Per-user limits
--  Per-IP limits
--  Clear error messages (429)
--  Retry-After headers
+**速率限制**
+- 每用户限制
+- 每 IP 限制
+- 清晰的错误消息（429）
+- Retry-After 请求头
 
 **CORS**
--  Whitelist specific origins
--  Handle preflight requests
--  Secure credentials
--  Appropriate headers
+- 将特定来源加入白名单
+- 处理预检请求
+- 保护凭证
+- 适当的请求头
 
-**Error Handling**
--  Don't expose stack traces
--  Generic error messages
--  Log detailed errors server-side
--  Consistent error format
+**错误处理**
+- 不暴露堆栈跟踪
+- 通用错误消息
+- 在服务端记录详细错误
+- 一致的错误格式
 
-**Logging & Monitoring**
--  Log authentication attempts
--  Log authorization failures
--  Track suspicious activity
--  Monitor rate limit hits
+**日志和监控**
+- 记录身份验证尝试
+- 记录授权失败
+- 跟踪可疑活动
+- 监控速率限制命中
 
-## What to Generate
+## 生成内容
 
-1. **Protected Route Handler** - Secured version of the API route
-2. **Middleware/Utilities** - Reusable auth helpers
-3. **Type Definitions** - User, permissions, roles
-4. **Error Responses** - Standardized auth errors
-5. **Usage Examples** - Client-side integration
+1. **受保护的路由处理器** - API 路由的安全版本
+2. **中间件/工具** - 可重用的 auth 助手
+3. **类型定义** - User、permissions、roles
+4. **错误响应** - 标准化的 auth 错误
+5. **使用示例** - 客户端集成
 
-## Common Patterns for Solo Developers
+## 独立开发者的常见模式
 
-**Pattern 1: Simple Token Auth**
+**模式 1: 简单 Token Auth**
 ```typescript
-// For internal tools, admin panels
+// 用于内部工具、管理面板
 const token = request.headers.get('authorization')
 if (token !== process.env.ADMIN_TOKEN) {
   return new Response('Unauthorized', { status: 401 })
 }
 ```
 
-**Pattern 2: User-based Auth**
+**模式 2: 基于用户的 Auth**
 ```typescript
-// For user-facing apps
+// 用于面向用户的应用
 const user = await getCurrentUser(request)
 if (!user) {
   return new Response('Unauthorized', { status: 401 })
 }
 ```
 
-**Pattern 3: Role-based Auth**
+**模式 3: 基于角色的 Auth**
 ```typescript
-// For apps with different user types
+// 用于具有不同用户类型的应用
 const user = await getCurrentUser(request)
 if (!user || !hasRole(user, 'admin')) {
   return new Response('Forbidden', { status: 403 })
 }
 ```
 
-Generate production-ready, secure code that follows the principle of least privilege.
+生成遵循最小权限原则的生产就绪安全代码。

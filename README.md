@@ -1,154 +1,154 @@
-# Edmund's Claude Code Setup
+# Edmund's Claude Code Setup (中文版)
 
-My personal Claude Code configuration for productive web development. This plugin provides **14 slash commands** and **11 specialized AI agents** to supercharge your development workflow.
+我的个人 Claude Code 配置,用于高效 Web 开发。这个插件提供了 **14 个斜杠命令** 和 **11 个专业 AI 代理**,让你的开发工作流程如虎添翼。
 
-## Quick Install
+## 快速安装
 
 ```bash
-# Step 1: Add the marketplace
+# 步骤 1: 添加 marketplace
 /plugin marketplace add edmund-io/edmunds-claude-code
 
-# Step 2: Install the plugin
+# 步骤 2: 安装插件
 /plugin install edmunds-claude-code
 ```
 
-## What's Inside
+## 内容概览
 
-### 📋 Development Commands (7)
+### 📋 开发命令 (7 个)
 
-- `/new-task` - Analyze code for performance issues
-- `/code-explain` - Generate detailed explanations
-- `/code-optimize` - Performance optimization
-- `/code-cleanup` - Refactoring and cleanup
-- `/feature-plan` - Feature implementation planning
-- `/lint` - Linting and fixes
-- `/docs-generate` - Documentation generation
+- `/new-task` - 分析代码性能问题
+- `/code-explain` - 生成详细说明
+- `/code-optimize` - 性能优化
+- `/code-cleanup` - 重构和清理
+- `/feature-plan` - 功能实现规划
+- `/lint` - 代码检查和修复
+- `/docs-generate` - 文档生成
 
-### 🔌 API Commands (3)
+### 🔌 API 命令 (3 个)
 
-- `/api-new` - Create new API endpoints
-- `/api-test` - Test API endpoints
-- `/api-protect` - Add protection & validation
+- `/api-new` - 创建新的 API 端点
+- `/api-test` - 测试 API 端点
+- `/api-protect` - 添加保护和验证
 
-### 🎨 UI Commands (2)
+### 🎨 UI 命令 (2 个)
 
-- `/component-new` - Create React components
-- `/page-new` - Create Next.js pages
+- `/component-new` - 创建 React 组件
+- `/page-new` - 创建 Next.js 页面
 
-### 💾 Supabase Commands (2)
+### 💾 Supabase 命令 (2 个)
 
-- `/types-gen` - Generate TypeScript types
-- `/edge-function-new` - Create Edge Functions
+- `/types-gen` - 生成 TypeScript 类型
+- `/edge-function-new` - 创建 Edge Functions
 
-### 🤖 Specialized AI Agents (11)
+### 🤖 专业 AI 代理 (11 个)
 
-**Architecture & Planning**
-- **tech-stack-researcher** - Technology choice recommendations with trade-offs
-- **system-architect** - Scalable system architecture design
-- **backend-architect** - Backend systems with data integrity & security
-- **frontend-architect** - Performant, accessible UI architecture
-- **requirements-analyst** - Transform ideas into concrete specifications
+**架构与规划**
+- **tech-stack-researcher** - 技术选型推荐,包含权衡分析
+- **system-architect** - 可扩展的系统架构设计
+- **backend-architect** - 注重数据完整性和安全的后端系统
+- **frontend-architect** - 高性能、可访问的 UI 架构
+- **requirements-analyst** - 将想法转化为具体规范
 
-**Code Quality & Performance**
-- **refactoring-expert** - Systematic refactoring and clean code
-- **performance-engineer** - Measurement-driven optimization
-- **security-engineer** - Vulnerability identification and security standards
+**代码质量与性能**
+- **refactoring-expert** - 系统性重构和代码整洁
+- **performance-engineer** - 数据驱动的优化
+- **security-engineer** - 漏洞识别和安全标准
 
-**Documentation & Research**
-- **technical-writer** - Clear, comprehensive documentation
-- **learning-guide** - Teaching programming concepts progressively
-- **deep-research-agent** - Comprehensive research with adaptive strategies
+**文档与研究**
+- **technical-writer** - 清晰全面的文档
+- **learning-guide** - 循序渐进的编程概念教学
+- **deep-research-agent** - 自适应策略的全面研究
 
-## Installation
+## 安装方法
 
-### From GitHub (Recommended)
+### 从 GitHub 安装 (推荐)
 
 ```bash
-# Add marketplace
+# 添加 marketplace
 /plugin marketplace add edmund-io/edmunds-claude-code
 
-# Install plugin
+# 安装插件
 /plugin install edmunds-claude-code
 ```
 
-### From Local Clone (for development)
+### 从本地克隆安装 (用于开发)
 
 ```bash
 git clone https://github.com/edmund-io/edmunds-claude-code.git
 cd edmunds-claude-code
 
-# Add as local marketplace
+# 添加为本地 marketplace
 /plugin marketplace add /path/to/edmunds-claude-code
 
-# Install plugin
+# 安装插件
 /plugin install edmunds-claude-code
 ```
 
-## Best For
+## 适用对象
 
-- Next.js developers
-- TypeScript projects
-- Supabase users
-- React developers
-- Full-stack engineers
+- Next.js 开发者
+- TypeScript 项目
+- Supabase 用户
+- React 开发者
+- 全栈工程师
 
-## Usage Examples
+## 使用示例
 
-### Planning a Feature
+### 规划功能
 
 ```bash
 /feature-plan
-# Then describe your feature idea
+# 然后描述你的功能想法
 ```
 
-### Creating an API
+### 创建 API
 
 ```bash
 /api-new
-# Claude will scaffold a complete API route with types, validation, and error handling
+# Claude 将搭建一个完整的 API 路由,包含类型、验证和错误处理
 ```
 
-### Research Tech Choices
+### 研究技术选型
 
-Just ask Claude questions like:
-- "Should I use WebSockets or SSE?"
-- "How should I structure this database?"
-- "What's the best library for X?"
+只需向 Claude 提问,例如:
+- "我应该使用 WebSockets 还是 SSE?"
+- "我应该如何构建这个数据库?"
+- "X 的最佳库是什么?"
 
-The tech-stack-researcher agent automatically activates and provides detailed, researched answers.
+tech-stack-researcher 代理会自动激活,并提供详细、有研究依据的答案。
 
-## Philosophy
+## 设计理念
 
-This setup emphasizes:
-- **Type Safety**: Never uses `any` types
-- **Best Practices**: Follows modern Next.js/React patterns
-- **Productivity**: Reduces repetitive scaffolding
-- **Research**: AI-powered tech decisions with evidence
+这个配置强调:
+- **类型安全**: 从不使用 `any` 类型
+- **最佳实践**: 遵循现代 Next.js/React 模式
+- **生产力**: 减少重复的脚手架工作
+- **研究**: AI 驱动的技术决策,有据可循
 
-## Requirements
+## 系统要求
 
 - Claude Code 2.0.13+
-- Works with any project (optimized for Next.js + Supabase)
+- 适用于任何项目(针对 Next.js + Supabase 优化)
 
-## Customization
+## 自定义配置
 
-After installation, you can customize any command by editing files in `.claude/commands/` and `.claude/agents/`.
+安装后,你可以通过编辑 `.claude/commands/` 和 `.claude/agents/` 中的文件来自定义任何命令。
 
-## Contributing
+## 贡献
 
-Feel free to:
-- Fork and customize for your needs
-- Submit issues or suggestions
-- Share your improvements
+欢迎:
+- Fork 并按需定制
+- 提交问题或建议
+- 分享你的改进
 
-## License
+## 许可证
 
-MIT - Use freely in your projects
+MIT - 在你的项目中自由使用
 
-## Author
+## 作者
 
-Created by Edmund
+由 Edmund 创建
 
 ---
 
-**Note**: This is my personal setup that I've refined over time. Commands are optimized for Next.js + Supabase workflows but work great with any modern web stack.
+**注意**: 这是我个人优化的配置。命令针对 Next.js + Supabase 工作流进行了优化,但也适用于任何现代 Web 技术栈。

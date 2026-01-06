@@ -1,18 +1,18 @@
 {
   "name": "edmunds-claude-code",
   "owner": {
-    "name": "Edmund",
+    "name": "Edmund (中文版)",
     "contact": "github.com/edmund-io"
   },
-  "description": "Edmund's curated Claude Code setup for productive development",
+  "description": "Edmund 精选的 Claude Code 配置中文版，用于高效开发",
   "plugins": [
     {
       "name": "edmunds-claude-code",
       "source": "./",
-      "description": "Personal Claude Code configuration with 14 productivity commands and 11 specialized AI agents for modern web development",
-      "version": "1.0.0",
+      "description": "Edmund 的个人 Claude Code 配置中文版，提供 14 个生产力命令和 11 个专业 AI 助手，用于现代 Web 开发",
+      "version": "1.0.0-zh",
       "author": {
-        "name": "Edmund",
+        "name": "Edmund (中文本地化)",
         "email": "[email protected]"
       },
       "tags": ["productivity", "nextjs", "supabase", "typescript", "react", "development"]

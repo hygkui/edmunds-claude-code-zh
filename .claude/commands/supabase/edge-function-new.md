@@ -1,32 +1,32 @@
 ---
-description: Create a new Supabase Edge Function with Deno
+description: 使用 Deno 创建新的 Supabase Edge Function
 model: claude-sonnet-4-5
 ---
 
-Create a new Supabase Edge Function.
+创建新的 Supabase Edge Function。
 
-## Function Specification
+## 函数规格
 
 $ARGUMENTS
 
-## Supabase Edge Functions Overview
+## Supabase Edge Functions 概述
 
-Edge Functions run on Deno Deploy (not Node.js):
-- TypeScript/JavaScript support
-- Run globally at the edge
-- Access to Supabase client
-- HTTP triggers
-- Fast cold starts
+Edge Functions 运行在 Deno Deploy 上（而非 Node.js）：
+- 支持 TypeScript/JavaScript
+- 在全球边缘运行
+- 访问 Supabase 客户端
+- HTTP 触发器
+- 快速冷启动
 
-## Create Edge Function
+## 创建 Edge Function
 
-### 1. **Initialize Function**
+### 1. **初始化函数**
 
 ```bash
 npx supabase functions new function-name
 ```
 
-### 2. **Function Structure**
+### 2. **函数结构**
 
 ```typescript
 // supabase/functions/function-name/index.ts
@@ -35,10 +35,10 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
 serve(async (req: Request) => {
   try {
-    // 1. Parse request
+    // 1. 解析请求
     const { data } = await req.json()
 
-    // 2. Create Supabase client
+    // 2. 创建 Supabase 客户端
     const supabaseClient = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_ANON_KEY') ?? '',
@@ -51,7 +51,7 @@ serve(async (req: Request) => {
       }
     )
 
-    // 3. Verify user (if needed)
+    // 3. 验证用户（如果需要）
     const {
       data: { user },
       error: authError
@@ -64,10 +64,10 @@ serve(async (req: Request) => {
       )
     }
 
-    // 4. Business logic
+    // 4. 业务逻辑
     const result = await processData(data, user)
 
-    // 5. Return response
+    // 5. 返回响应
     return new Response(
       JSON.stringify({ data: result }),
       {
@@ -90,29 +90,29 @@ serve(async (req: Request) => {
 })
 ```
 
-### 3. **Common Use Cases**
+### 3. **常见用例**
 
-**Webhook Handler**
+**Webhook 处理器**
 ```typescript
 serve(async (req) => {
   const signature = req.headers.get('stripe-signature')
-  // Verify webhook signature
-  // Process event
+  // 验证 webhook 签名
+  // 处理事件
   return new Response('OK', { status: 200 })
 })
 ```
 
-**Scheduled Function** (with pg_cron)
+**定时函数**（使用 pg_cron）
 ```typescript
 serve(async () => {
-  // Run daily cleanup, send emails, etc.
+  // 运行日常清理、发送邮件等
   const supabase = createClient(url, serviceKey)
   await supabase.from('old_records').delete().lt('created_at', oldDate)
   return new Response('Done', { status: 200 })
 })
 ```
 
-**API Proxy/Transform**
+**API 代理/转换**
 ```typescript
 serve(async (req) => {
   const apiKey = Deno.env.get('THIRD_PARTY_API_KEY')
@@ -120,49 +120,49 @@ serve(async (req) => {
     headers: { 'Authorization': `Bearer ${apiKey}` }
   })
   const data = await response.json()
-  // Transform and return
+  // 转换并返回
   return new Response(JSON.stringify(data), { status: 200 })
 })
 ```
 
-### 4. **Testing Locally**
+### 4. **本地测试**
 
 ```bash
-# Start Supabase locally
+# 本地启动 Supabase
 npx supabase start
 
-# Serve function locally
+# 本地运行函数
 npx supabase functions serve function-name
 
-# Test with curl
+# 使用 curl 测试
 curl -X POST http://localhost:54321/functions/v1/function-name \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{"key":"value"}'
 ```
 
-### 5. **Deploy Function**
+### 5. **部署函数**
 
 ```bash
-# Deploy to Supabase
+# 部署到 Supabase
 npx supabase functions deploy function-name
 
-# Set secrets
+# 设置密钥
 npx supabase secrets set API_KEY=your-secret-key
 
-# View logs
+# 查看日志
 npx supabase functions logs function-name
 ```
 
-### 6. **Calling from Frontend**
+### 6. **从前端调用**
 
 ```typescript
-// Using Supabase client
+// 使用 Supabase 客户端
 const { data, error } = await supabase.functions.invoke('function-name', {
   body: { key: 'value' }
 })
 
-// Direct fetch
+// 直接 fetch
 const response = await fetch(
   `${SUPABASE_URL}/functions/v1/function-name`,
   {
@@ -176,49 +176,49 @@ const response = await fetch(
 )
 ```
 
-### 7. **Best Practices**
+### 7. **最佳实践**
 
-**Security**
--  Verify user authentication
--  Use RLS policies
--  Validate all inputs
--  Use service role key sparingly
--  Set CORS headers correctly
+**安全性**
+- ✓ 验证用户身份
+- ✓ 使用 RLS 策略
+- ✓ 验证所有输入
+- ✓ 谨慎使用 service role key
+- ✓ 正确设置 CORS 头
 
-**Performance**
--  Keep functions small and focused
--  Use streaming for large responses
--  Cache when possible
--  Handle timeouts (max 150s)
+**性能**
+- ✓ 保持函数小而专注
+- ✓ 对大响应使用流式传输
+- ✓ 尽可能使用缓存
+- ✓ 处理超时（最多 150s）
 
-**Error Handling**
--  Proper HTTP status codes
--  Consistent error format
--  Log errors for debugging
--  Don't expose sensitive info
+**错误处理**
+- ✓ 使用正确的 HTTP 状态码
+- ✓ 保持一致的错误格式
+- ✓ 记录错误以便调试
+- ✓ 不要暴露敏感信息
 
-**Code Organization**
--  One function per file
--  Extract utilities to shared folder
--  Use TypeScript for type safety
--  Import from Deno-compatible URLs
+**代码组织**
+- ✓ 每个文件一个函数
+- ✓ 将工具函数提取到共享文件夹
+- ✓ 使用 TypeScript 以确保类型安全
+- ✓ 从与 Deno 兼容的 URL 导入
 
-### 8. **Environment Variables**
+### 8. **环境变量**
 
 ```bash
-# Set locally
+# 本地设置
 echo "API_KEY=secret" > supabase/functions/.env
 
-# Set in production
+# 在生产环境中设置
 npx supabase secrets set API_KEY=secret
 
-# Access in function
+# 在函数中访问
 const apiKey = Deno.env.get('API_KEY')
 ```
 
-### 9. **Common Patterns**
+### 9. **常见模式**
 
-**CORS Handling**
+**CORS 处理**
 ```typescript
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -230,22 +230,22 @@ serve(async (req) => {
       }
     })
   }
-  // Handle request
+  // 处理请求
 })
 ```
 
-**Database Access**
+**数据库访问**
 ```typescript
-// Read with RLS (uses user's token)
+// 使用 RLS 读取（使用用户的 token）
 const { data } = await supabaseClient
   .from('posts')
   .select('*')
 
-// Admin access (bypasses RLS)
+// 管理员访问（绕过 RLS）
 const supabaseAdmin = createClient(url, serviceRoleKey)
 const { data } = await supabaseAdmin
   .from('posts')
   .select('*')
 ```
 
-Generate production-ready Edge Functions with proper error handling, authentication, and type safety.
+生成具有适当错误处理、身份验证和类型安全的生产级 Edge Functions。

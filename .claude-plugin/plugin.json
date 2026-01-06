@@ -1,153 +1,153 @@
 {
   "name": "edmunds-claude-code",
-  "version": "1.0.0",
-  "description": "Edmund's personal Claude Code setup with 14 productivity commands and 11 specialized AI agents for modern web development",
-  "author": "Edmund",
+  "version": "1.0.0-zh",
+  "description": "Edmund 的 Claude Code 配置中文版 - 提供 14 个生产力命令和 11 个专业 AI 助手，用于现代 Web 开发（中文本地化版本）",
+  "author": "Edmund (中文版)",
   "license": "MIT",
   "commands": [
     {
       "name": "new-task",
       "path": ".claude/commands/new-task.md",
-      "description": "Analyze code for performance issues and suggest optimizations"
+      "description": "分析代码性能问题并提供优化建议"
     },
     {
       "name": "code-explain",
       "path": ".claude/commands/misc/code-explain.md",
-      "description": "Generate detailed code explanations"
+      "description": "生成详细的代码解释"
     },
     {
       "name": "code-optimize",
       "path": ".claude/commands/misc/code-optimize.md",
-      "description": "Optimize code for performance"
+      "description": "优化代码性能"
     },
     {
       "name": "code-cleanup",
       "path": ".claude/commands/misc/code-cleanup.md",
-      "description": "Clean up and refactor code"
+      "description": "清理和重构代码"
     },
     {
       "name": "feature-plan",
       "path": ".claude/commands/misc/feature-plan.md",
-      "description": "Plan new feature implementation"
+      "description": "规划新功能的实施"
     },
     {
       "name": "lint",
       "path": ".claude/commands/misc/lint.md",
-      "description": "Run linting and fix issues"
+      "description": "运行代码检查并修复问题"
     },
     {
       "name": "docs-generate",
       "path": ".claude/commands/misc/docs-generate.md",
-      "description": "Generate documentation"
+      "description": "生成文档"
     },
     {
       "name": "api-new",
       "path": ".claude/commands/api/api-new.md",
-      "description": "Create new API endpoint"
+      "description": "创建新的 API 端点"
     },
     {
       "name": "api-test",
       "path": ".claude/commands/api/api-test.md",
-      "description": "Test API endpoints"
+      "description": "测试 API 端点"
     },
     {
       "name": "api-protect",
       "path": ".claude/commands/api/api-protect.md",
-      "description": "Add API protection and validation"
+      "description": "添加 API 保护和验证"
     },
     {
       "name": "component-new",
       "path": ".claude/commands/ui/component-new.md",
-      "description": "Create new React component"
+      "description": "创建新的 React 组件"
     },
     {
       "name": "page-new",
       "path": ".claude/commands/ui/page-new.md",
-      "description": "Create new Next.js page"
+      "description": "创建新的 Next.js 页面"
     },
     {
       "name": "types-gen",
       "path": ".claude/commands/supabase/types-gen.md",
-      "description": "Generate Supabase TypeScript types"
+      "description": "生成 Supabase TypeScript 类型"
     },
     {
       "name": "edge-function-new",
       "path": ".claude/commands/supabase/edge-function-new.md",
-      "description": "Create new Supabase Edge Function"
+      "description": "创建新的 Supabase Edge Function"
     }
   ],
   "agents": [
     {
       "name": "tech-stack-researcher",
       "path": ".claude/agents/tech-stack-researcher.md",
-      "description": "Research and recommend technology choices for feature development"
+      "description": "研究和推荐功能开发的技术选择"
     },
     {
       "name": "backend-architect",
       "path": ".claude/agents/backend-architect.md",
-      "description": "Design reliable backend systems with focus on data integrity, security, and fault tolerance"
+      "description": "设计可靠的后端系统，专注于数据完整性、安全性和容错性"
     },
     {
       "name": "deep-research-agent",
       "path": ".claude/agents/deep-research-agent.md",
-      "description": "Specialist for comprehensive research with adaptive strategies and intelligent exploration"
+      "description": "综合研究专家，具有自适应策略和智能探索能力"
     },
     {
       "name": "frontend-architect",
       "path": ".claude/agents/frontend-architect.md",
-      "description": "Create accessible, performant user interfaces with focus on user experience and modern frameworks"
+      "description": "创建可访问、高性能的用户界面，专注于用户体验和现代框架"
     },
     {
       "name": "learning-guide",
       "path": ".claude/agents/learning-guide.md",
-      "description": "Teach programming concepts and explain code with focus on understanding through progressive learning"
+      "description": "教授编程概念和解释代码，专注于通过渐进式学习来理解"
     },
     {
       "name": "performance-engineer",
       "path": ".claude/agents/performance-engineer.md",
-      "description": "Optimize system performance through measurement-driven analysis and bottleneck elimination"
+      "description": "通过测量驱动的分析和瓶颈消除来优化系统性能"
     },
     {
       "name": "refactoring-expert",
       "path": ".claude/agents/refactoring-expert.md",
-      "description": "Improve code quality and reduce technical debt through systematic refactoring and clean code principles"
+      "description": "通过系统性重构和清洁代码原则来提高代码质量并减少技术债务"
     },
     {
       "name": "requirements-analyst",
       "path": ".claude/agents/requirements-analyst.md",
-      "description": "Transform ambiguous project ideas into concrete specifications through systematic requirements discovery"
+      "description": "通过系统性的需求发现将模糊的项目想法转化为具体的规范"
     },
     {
       "name": "security-engineer",
       "path": ".claude/agents/security-engineer.md",
-      "description": "Identify security vulnerabilities and ensure compliance with security standards and best practices"
+      "description": "识别安全漏洞并确保符合安全标准和最佳实践"
     },
     {
       "name": "system-architect",
       "path": ".claude/agents/system-architect.md",
-      "description": "Design scalable system architecture with focus on maintainability and long-term technical decisions"
+      "description": "设计可扩展的系统架构，专注于可维护性和长期技术决策"
     },
     {
       "name": "technical-writer",
       "path": ".claude/agents/technical-writer.md",
-      "description": "Create clear, comprehensive technical documentation tailored to specific audiences with focus on usability"
+      "description": "创建清晰、全面的技术文档，针对特定受众并专注于可用性"
     }
   ],
   "mcpServers": {
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"],
-      "description": "Access up-to-date documentation for any library"
+      "description": "访问任何库的最新文档"
     },
     "playwright": {
       "command": "npx",
       "args": ["@playwright/mcp@latest"],
-      "description": "Browser automation and web testing capabilities"
+      "description": "浏览器自动化和 Web 测试功能"
     },
     "supabase": {
       "command": "npx",
       "args": ["-y", "@supabase/mcp-server-supabase"],
-      "description": "Supabase database operations and management"
+      "description": "Supabase 数据库操作和管理"
     }
   },
   "tags": [

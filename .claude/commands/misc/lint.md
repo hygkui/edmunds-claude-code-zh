@@ -1,82 +1,82 @@
 ---
-description: Run linting and fix code quality issues
+description: 运行 linting 并修复代码质量问题
 model: claude-sonnet-4-5
 ---
 
-Run linting and fix code quality issues in the codebase.
+在代码库中运行 linting 并修复代码质量问题。
 
-## Target
+## 目标
 
 $ARGUMENTS
 
-## Lint Strategy for Solo Developers
+## 独立开发者 Lint 策略
 
-### 1. **Run Linting Commands**
+### 1. **运行 Linting 命令**
 
 ```bash
-# ESLint (JavaScript/TypeScript)
+# ESLint（JavaScript/TypeScript）
 npm run lint
 npx eslint . --fix
 
-# TypeScript Compiler
+# TypeScript 编译器
 npx tsc --noEmit
 
-# Prettier (formatting)
+# Prettier（格式化）
 npx prettier --write .
 
-# All together
+# 全部一起
 npm run lint && npx tsc --noEmit && npx prettier --write .
 ```
 
-### 2. **Common ESLint Issues**
+### 2. **常见 ESLint 问题**
 
-**TypeScript Errors**
-- Missing type annotations
-- `any` types used
-- Unused variables
-- Missing return types
+**TypeScript 错误**
+- 缺少类型注解
+- 使用了 `any` 类型
+- 未使用的变量
+- 缺少返回类型
 
-**React/Next.js Issues**
-- Missing keys in lists
-- Unsafe useEffect dependencies
-- Unescaped entities in JSX
-- Missing alt text on images
+**React/Next.js 问题**
+- 列表中缺少 keys
+- 不安全的 useEffect 依赖
+- JSX 中未转义的实体
+- 图片上缺少 alt 文本
 
-**Code Quality**
-- Unused imports
-- Console.log statements
-- Debugger statements
-- TODO comments
+**代码质量**
+- 未使用的导入
+- Console.log 语句
+- Debugger 语句
+- TODO 注释
 
-**Best Practices**
-- No var, use const/let
-- Prefer const over let
-- No nested ternaries
-- Consistent return statements
+**最佳实践**
+- 不使用 var，使用 const/let
+- 优先使用 const 而不是 let
+- 不使用嵌套三元运算符
+- 一致的 return 语句
 
-### 3. **Auto-Fix What You Can**
+### 3. **自动修复你能修复的**
 
-**Safe Auto-Fixes**
+**安全的自动修复**
 ```bash
-# Fix formatting
+# 修复格式化
 prettier --write .
 
-# Fix ESLint auto-fixable rules
+# 修复 ESLint 可自动修复的规则
 eslint --fix .
 
-# Fix import order
+# 修复导入顺序
 eslint --fix --rule 'import/order: error' .
 ```
 
-**Manual Fixes Needed**
-- Type annotations
-- Logic errors
-- Missing error handling
-- Accessibility issues
+**需要手动修复**
+- 类型注解
+- 逻辑错误
+- 缺少错误处理
+- 可访问性问题
 
-### 4. **Lint Configuration**
+### 4. **Lint 配置**
 
-**ESLint Config** (`.eslintrc.json`)
+**ESLint 配置**（`.eslintrc.json`）
 ```json
 {
   "extends": [
@@ -91,7 +91,7 @@ eslint --fix --rule 'import/order: error' .
 }
 ```
 
-**Prettier Config** (`.prettierrc`)
+**Prettier 配置**（`.prettierrc`）
 ```json
 {
   "semi": false,
@@ -101,39 +101,39 @@ eslint --fix --rule 'import/order: error' .
 }
 ```
 
-### 5. **Priority Fixes**
+### 5. **优先级修复**
 
-**High Priority** (fix immediately)
-- Type errors blocking build
-- Security vulnerabilities
-- Runtime errors
-- Broken accessibility
+**高优先级**（立即修复）
+- 阻塞构建的类型错误
+- 安全漏洞
+- 运行时错误
+- 可访问性问题
 
-**Medium Priority** (fix before commit)
-- Missing type annotations
-- Unused variables
-- Code style violations
-- TODO comments
+**中等优先级**（提交前修复）
+- 缺少类型注解
+- 未使用的变量
+- 代码风格违规
+- TODO 注释
 
-**Low Priority** (fix when convenient)
-- Formatting inconsistencies
-- Comment improvements
-- Minor refactoring opportunities
+**低优先级**（方便时修复）
+- 格式不一致
+- 注释改进
+- 小的重构机会
 
-### 6. **Pre-Commit Hooks** (Recommended)
+### 6. **预提交钩子**（推荐）
 
-**Install Husky + lint-staged**
+**安装 Husky + lint-staged**
 ```bash
 npm install -D husky lint-staged
 npx husky init
 ```
 
-**Configure** (`.husky/pre-commit`)
+**配置**（`.husky/pre-commit`）
 ```bash
 npx lint-staged
 ```
 
-**lint-staged config** (`package.json`)
+**lint-staged 配置**（`package.json`）
 ```json
 {
   "lint-staged": {
@@ -145,9 +145,9 @@ npx lint-staged
 }
 ```
 
-### 7. **VSCode Integration**
+### 7. **VSCode 集成**
 
-**Settings** (`.vscode/settings.json`)
+**设置**（`.vscode/settings.json`）
 ```json
 {
   "editor.formatOnSave": true,
@@ -158,45 +158,45 @@ npx lint-staged
 }
 ```
 
-## What to Generate
+## 生成内容
 
-1. **Lint Report** - All issues found
-2. **Auto-Fix Results** - What was automatically fixed
-3. **Manual Fix Suggestions** - Issues requiring manual intervention
-4. **Priority List** - Ordered by severity
-5. **Configuration Recommendations** - Improve lint setup
+1. **Lint 报告** - 发现的所有问题
+2. **自动修复结果** - 自动修复的内容
+3. **手动修复建议** - 需要手动干预的问题
+4. **优先级列表** - 按严重程度排序
+5. **配置建议** - 改进 lint 设置
 
-## Common Fixes
+## 常见修复
 
-**Remove Unused Imports**
+**移除未使用的导入**
 ```typescript
-// Before
+// 之前
 import { A, B, C } from 'lib'
 
-// After
-import { A, C } from 'lib'  // B was unused
+// 之后
+import { A, C } from 'lib'  // B 未使用
 ```
 
-**Add Type Annotations**
+**添加类型注解**
 ```typescript
-// Before
+// 之前
 function process(data) {
   return data.map(x => x.value)
 }
 
-// After
+// 之后
 function process(data: DataItem[]): number[] {
   return data.map(x => x.value)
 }
 ```
 
-**Fix Missing Keys**
+**修复缺少的 Keys**
 ```typescript
-// Before
+// 之前
 {items.map(item => <div>{item.name}</div>)}
 
-// After
+// 之后
 {items.map(item => <div key={item.id}>{item.name}</div>)}
 ```
 
-Focus on fixes that improve code quality and prevent bugs. Run linting before every commit.
+专注于改进代码质量和防止错误的修复。在每次提交前运行 linting。

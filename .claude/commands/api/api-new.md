@@ -1,71 +1,71 @@
 ---
-description: Create a new Next.js API route with validation, error handling, and TypeScript
+description: 创建新的 Next.js API 路由，包含验证、错误处理和 TypeScript
 model: claude-sonnet-4-5
 ---
 
-Create a new Next.js API route following modern best practices for solo developers.
+为独立开发者创建遵循现代最佳实践的 Next.js API 路由。
 
-## Requirements
+## 需求
 
-API Endpoint: $ARGUMENTS
+API 端点: $ARGUMENTS
 
-## Implementation Guidelines
+## 实现指南
 
-### 1. **Next.js 15 App Router** (Recommended)
-Use Route Handlers in `app/api/` directory with TypeScript
+### 1. **Next.js 15 App Router**（推荐）
+在 `app/api/` 目录中使用 Route Handlers 和 TypeScript
 
-### 2. **Validation**
-- Use Zod for runtime type validation
-- Validate input early (before DB/API calls)
-- Return clear validation error messages
+### 2. **验证**
+- 使用 Zod 进行运行时类型验证
+- 提前验证输入（在数据库/API 调用之前）
+- 返回清晰的验证错误消息
 
-### 3. **Error Handling**
-- Global error handling with try/catch
-- Consistent error response format
-- Appropriate HTTP status codes
-- Never expose sensitive error details
+### 3. **错误处理**
+- 使用 try/catch 进行全局错误处理
+- 一致的错误响应格式
+- 适当的 HTTP 状态码
+- 永不暴露敏感的错误详情
 
 ### 4. **TypeScript**
-- Strict typing for requests/responses
-- Shared type definitions
-- No `any` types
+- 对请求/响应进行严格类型定义
+- 共享类型定义
+- 不使用 `any` 类型
 
-### 5. **Security**
-- Input sanitization
-- CORS configuration if needed
-- Rate limiting considerations
-- Authentication/authorization checks
+### 5. **安全性**
+- 输入清理
+- 如需要则配置 CORS
+- 考虑速率限制
+- 身份验证/授权检查
 
-### 6. **Response Format**
+### 6. **响应格式**
 ```typescript
-// Success
+// 成功
 { data: T, success: true }
 
-// Error
+// 错误
 { error: string, details?: unknown, success: false }
 ```
 
-## Code Structure
+## 代码结构
 
-Create a complete API route with:
+创建完整的 API 路由，包含：
 
-1. **Route Handler File** - `app/api/[route]/route.ts`
-2. **Validation Schema** - Zod schemas for request/response
-3. **Type Definitions** - Shared TypeScript types
-4. **Error Handler** - Centralized error handling
-5. **Example Usage** - Client-side fetch example
+1. **路由处理文件** - `app/api/[route]/route.ts`
+2. **验证模式** - 用于请求/响应的 Zod 模式
+3. **类型定义** - 共享的 TypeScript 类型
+4. **错误处理器** - 集中式错误处理
+5. **使用示例** - 客户端 fetch 示例
 
-## Best Practices to Follow
+## 遵循的最佳实践
 
--  Early validation before expensive operations
--  Proper HTTP status codes (200, 201, 400, 401, 404, 500)
--  Consistent error response format
--  TypeScript strict mode
--  Minimal logic in routes (use services/utils)
--  Environment variable validation
--  Request/response logging for debugging
-- L No sensitive data in responses
-- L No database queries without validation
-- L No inline business logic (extract to services)
+- 在昂贵操作之前进行早期验证
+- 使用适当的 HTTP 状态码（200, 201, 400, 401, 404, 500）
+- 一致的错误响应格式
+- TypeScript 严格模式
+- 路由中的逻辑最小化（使用 services/utils）
+- 环境变量验证
+- 请求/响应日志记录以便调试
+- 响应中不包含敏感数据
+- 未经验证不得进行数据库查询
+- 不得包含内联业务逻辑（提取到 services）
 
-Generate production-ready code that I can immediately use in my Next.js project.
+生成我可以立即在 Next.js 项目中使用的生产就绪代码。

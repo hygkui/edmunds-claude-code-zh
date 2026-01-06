@@ -1,97 +1,97 @@
 ---
-description: Analyze task complexity and create actionable implementation plan
+description: 分析任务复杂性并创建可执行的实施计划
 model: claude-sonnet-4-5
 ---
 
-Analyze the following task and create a clear, actionable implementation plan.
+分析以下任务并创建清晰、可执行的实施计划。
 
-## Task
+## 任务
 
 $ARGUMENTS
 
-## Analysis Framework
+## 分析框架
 
-### 1. **Task Breakdown**
-- Understand requirements
-- Identify dependencies
-- List affected files/components
-- Estimate complexity (Small/Medium/Large)
+### 1. **任务分解**
+- 理解需求
+- 识别依赖关系
+- 列出受影响的文件/组件
+- 估算复杂性（小/中/大）
 
-### 2. **Time Estimation**
-- **Small**: 1-2 hours (simple bug fix, minor feature)
-- **Medium**: Half day to 1 day (new component, API endpoint)
-- **Large**: 2-5 days (complex feature, multiple integrations)
-- **Very Large**: 1+ week (major refactor, new subsystem)
+### 2. **时间估算**
+- **小**: 1-2 小时（简单 bug 修复、小功能）
+- **中**: 半天到 1 天（新组件、API 端点）
+- **大**: 2-5 天（复杂功能、多个集成）
+- **非常大**: 1 周以上（重大重构、新子系统）
 
-### 3. **Risk Assessment**
-Identify potential blockers:
-- Unknown dependencies
-- API limitations
-- Data migration needs
-- Breaking changes
-- Third-party service issues
+### 3. **风险评估**
+识别潜在的阻碍因素：
+- 未知的依赖关系
+- API 限制
+- 数据迁移需求
+- 破坏性更改
+- 第三方服务问题
 
-### 4. **Implementation Steps**
+### 4. **实施步骤**
 
-Create sequential, logical steps:
-1. Setup/preparation
-2. Backend changes
-3. Frontend changes
-4. Testing
-5. Documentation
-6. Deployment
+创建顺序的、逻辑化的步骤：
+1. 设置/准备
+2. 后端更改
+3. 前端更改
+4. 测试
+5. 文档
+6. 部署
 
-### 5. **Success Criteria**
+### 5. **成功标准**
 
-Define "done":
-- Feature works as specified
-- Tests pass
-- No regressions
-- Code reviewed
-- Documented
+定义"完成"：
+- 功能按规范工作
+- 测试通过
+- 无回归问题
+- 代码已审查
+- 已编写文档
 
-## Output Format
+## 输出格式
 
-### Task Analysis
-- **Type**: [Bug Fix / Feature / Refactor / Infrastructure]
-- **Complexity**: [Small / Medium / Large / Very Large]
-- **Estimated Time**: X hours/days
-- **Priority**: [High / Medium / Low]
+### 任务分析
+- **类型**: [Bug 修复 / 功能 / 重构 / 基础设施]
+- **复杂性**: [小 / 中 / 大 / 非常大]
+- **预估时间**: X 小时/天
+- **优先级**: [高 / 中 / 低]
 
-### Implementation Plan
+### 实施计划
 
-**Phase 1: [Name]** (Time estimate)
-- [ ] Step 1
-- [ ] Step 2
+**阶段 1: [名称]** (时间估算)
+- [ ] 步骤 1
+- [ ] 步骤 2
 
-**Phase 2: [Name]** (Time estimate)
-- [ ] Step 3
-- [ ] Step 4
+**阶段 2: [名称]** (时间估算)
+- [ ] 步骤 3
+- [ ] 步骤 4
 
-### Files to Modify/Create
+### 需要修改/创建的文件
 ```
-app/page.tsx (modify)
-components/NewComponent.tsx (create)
-lib/utils.ts (modify)
+app/page.tsx (修改)
+components/NewComponent.tsx (创建)
+lib/utils.ts (修改)
 ```
 
-### Dependencies
+### 依赖项
 ```bash
 npm install package-name
 ```
 
-### Testing Strategy
-- Unit tests for X
-- Integration tests for Y
-- Manual testing steps
+### 测试策略
+- X 的单元测试
+- Y 的集成测试
+- 手动测试步骤
 
-### Potential Issues
-- Issue 1 and mitigation
-- Issue 2 and mitigation
+### 潜在问题
+- 问题 1 和缓解措施
+- 问题 2 和缓解措施
 
-### Next Steps
-1. Start with Phase 1, Step 1
-2. Test incrementally
-3. Commit often
+### 下一步
+1. 从阶段 1、步骤 1 开始
+2. 增量测试
+3. 频繁提交
 
-Provide a clear, solo-developer-friendly plan that breaks down complex tasks into manageable steps.
+提供一个清晰的、适合独立开发者的计划，将复杂任务分解为可管理的步骤。

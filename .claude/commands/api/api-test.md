@@ -1,53 +1,53 @@
 ---
-description: Test API endpoints with automated test generation
+description: 使用自动测试生成测试 API 端点
 model: claude-sonnet-4-5
 ---
 
-Generate comprehensive API tests for the specified endpoint.
+为指定端点生成全面的 API 测试。
 
-## Target
+## 目标
 
 $ARGUMENTS
 
-## Test Strategy for Solo Developers
+## 独立开发者的测试策略
 
-Create practical, maintainable tests using modern tools:
+使用现代工具创建实用、可维护的测试：
 
-### 1. **Testing Approach**
-- Unit tests for validation logic
-- Integration tests for full API flow
-- Edge case coverage
-- Error scenario testing
+### 1. **测试方法**
+- 验证逻辑的单元测试
+- 完整 API 流程的集成测试
+- 边缘情况覆盖
+- 错误场景测试
 
-### 2. **Tools** (choose based on project)
-- **Vitest** - Fast, modern (recommended for new projects)
-- **Jest** - Established, widely used
-- **Supertest** - HTTP assertions
-- **MSW** - API mocking
+### 2. **工具**（根据项目选择）
+- **Vitest** - 快速、现代（推荐用于新项目）
+- **Jest** - 成熟、广泛使用
+- **Supertest** - HTTP 断言
+- **MSW** - API 模拟
 
-### 3. **Test Coverage**
+### 3. **测试覆盖**
 
-**Happy Paths**
-- Valid inputs return expected results
-- Proper status codes
-- Correct response structure
+**正常路径**
+- 有效输入返回预期结果
+- 正确的状态码
+- 正确的响应结构
 
-**Error Paths**
-- Invalid input validation
-- Authentication failures
-- Rate limiting
-- Server errors
-- Missing required fields
+**错误路径**
+- 无效输入验证
+- 身份验证失败
+- 速率限制
+- 服务器错误
+- 缺少必填字段
 
-**Edge Cases**
-- Empty requests
-- Malformed JSON
-- Large payloads
-- Special characters
-- SQL injection attempts
-- XSS attempts
+**边缘情况**
+- 空请求
+- 格式错误的 JSON
+- 大 payload
+- 特殊字符
+- SQL 注入尝试
+- XSS 尝试
 
-### 4. **Test Structure**
+### 4. **测试结构**
 
 ```typescript
 describe('API Endpoint', () => {
@@ -68,49 +68,49 @@ describe('API Endpoint', () => {
 })
 ```
 
-### 5. **What to Generate**
+### 5. **生成内容**
 
-1. **Test File** - Complete test suite with all scenarios
-2. **Mock Data** - Realistic test fixtures
-3. **Helper Functions** - Reusable test utilities
-4. **Setup/Teardown** - Database/state management
-5. **Quick Test Script** - npm script to run tests
+1. **测试文件** - 包含所有场景的完整测试套件
+2. **模拟数据** - 真实的测试 fixtures
+3. **辅助函数** - 可重用的测试工具
+4. **设置/清理** - 数据库/状态管理
+5. **快速测试脚本** - 运行测试的 npm 脚本
 
-## Key Testing Principles
+## 关键测试原则
 
--  Test behavior, not implementation
--  Clear, descriptive test names
--  Arrange-Act-Assert pattern
--  Independent tests (no shared state)
--  Fast execution (<5s for unit tests)
--  Realistic mock data
--  Test error messages
-- L Don't test framework internals
-- L Don't mock what you don't own
-- L Avoid brittle tests
+- 测试行为，而非实现
+- 清晰、描述性的测试名称
+- Arrange-Act-Assert 模式
+- 独立的测试（无共享状态）
+- 快速执行（单元测试 <5s）
+- 真实的模拟数据
+- 测试错误消息
+- 不测试框架内部
+- 不模拟你不拥有的内容
+- 避免脆弱的测试
 
-## Additional Scenarios to Cover
+## 需要覆盖的其他场景
 
-1. **Authentication/Authorization**
-   - Valid tokens
-   - Expired tokens
-   - Missing tokens
-   - Invalid permissions
+1. **身份验证/授权**
+   - 有效 token
+   - 过期 token
+   - 缺失 token
+   - 无效权限
 
-2. **Data Validation**
-   - Type mismatches
-   - Out of range values
-   - SQL/NoSQL injection
-   - XSS payloads
+2. **数据验证**
+   - 类型不匹配
+   - 超出范围的值
+   - SQL/NoSQL 注入
+   - XSS payload
 
-3. **Rate Limiting**
-   - Within limits
-   - Exceeding limits
-   - Reset behavior
+3. **速率限制**
+   - 在限制内
+   - 超过限制
+   - 重置行为
 
-4. **Performance**
-   - Response times
-   - Large dataset handling
-   - Concurrent requests
+4. **性能**
+   - 响应时间
+   - 大数据集处理
+   - 并发请求
 
-Generate production-ready tests I can run immediately with `npm test`.
+生成我可以使用 `npm test` 立即运行的生产就绪测试。
